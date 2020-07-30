@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from './redux/store';
 import App from './App';
 
-const store = configureStore;
+const store = configureStore();
 const persistor = persistStore(store);
 
 ReactDOM.render(

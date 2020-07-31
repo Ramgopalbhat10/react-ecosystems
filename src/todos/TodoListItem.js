@@ -1,10 +1,17 @@
 import React from 'react';
 
-const TodoListItem = ({ todo, onRemovePressed }) => (
+const TodoListItem = ({ todo, onRemovePressed, onCompletePressed }) => (
   <div className="todo-item-container">
     <h3>{todo.text}</h3>
-    <div className="btn-container">
-      <button className="btn-completed">Mark As Completed</button>
+    <div className="btn-container pending-todos">
+      {todo.isCompleted ? null : (
+        <button
+          onClick={() => onCompletePressed(todo.text)}
+          className="btn-completed"
+        >
+          Mark As Completed
+        </button>
+      )}
       <button onClick={() => onRemovePressed(todo.text)} className="btn-remove">
         Remove
       </button>
